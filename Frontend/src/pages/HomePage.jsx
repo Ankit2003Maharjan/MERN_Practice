@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import NavBar from '../components/NavBar';
 import RateLimitedUI from '../components/RateLimitedUI';
 import axios from 'axios';
+import api from '../lib/axios';
 import UserCard from '../components/UserCard';
 import UserNotFound from '../components/UserNotFound';
 
@@ -14,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/users');
+        const res = await api.get('/users');
 
         console.log(res.data.users);
 
